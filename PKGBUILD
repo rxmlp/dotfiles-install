@@ -89,7 +89,6 @@ depends=(
     pcmanfm-qt
 
     # ETC
-    better-control-git
     bluez
     bluez-tools
     bluez-utils

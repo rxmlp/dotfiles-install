@@ -88,7 +88,7 @@ DIRS=(
 # Clone your dotfiles repo to CONFIG_DIR, backing up if it already exists
 if [ -d "$CONFIG_DIR" ]; then
     echo "$CONFIG_DIR already exists, making .bak and cloning fresh"
-    mv "$CONFIG_DIR" "$CONFIG_DIR".bak
+    mv "$CONFIG_DIR" "$CONFIG_DIR"_$(date +%s).bak
 fi
 
 git clone https://github.com/rxmlp/dotfiles.git "$CONFIG_DIR"
@@ -118,7 +118,7 @@ for d in "${DIRS[@]}"; do
 done
 
 $SUPER pacman -Sy --noconfirm yay
-yay -S --noconfirm matugen-bin
+yay -S --noconfirm matugen-bin better-control-git
 
 
 # Temporary working directory for building the dummy package
