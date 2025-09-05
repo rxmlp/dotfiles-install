@@ -37,7 +37,7 @@ else
 fi
 
 # List of required packages
-REQUIRED_PKGS=("git" "base" "base-devel")
+REQUIRED_PKGS=("git" "base" "base-devel" "starship")
 
 # Determine which packages are missing
 MISSING_PKGS=()
@@ -86,7 +86,7 @@ DIRS=(
 # Clone your dotfiles repo to CONFIG_DIR, backing up if it already exists
 if [ -d "$CONFIG_DIR" ]; then
     echo "$CONFIG_DIR already exists, making .bak and cloning fresh"
-    mv "$CONFIG_DIR" "$CONFIG_DIR"_$(date +%s).bak
+    mv "$CONFIG_DIR" "$CONFIG_DIR".bak
 fi
 
 git clone https://github.com/rxmlp/dotfiles.git "$CONFIG_DIR"
@@ -110,12 +110,24 @@ for d in "${DIRS[@]}"; do
         fi
         ln -s "$SRC" "$DEST"
         echo "Linked $SRC -> $DEST"
-        ln -s ~/.dotfiles/.zshrc ~/.zshrc
-        ln -s ~/.dotfiles/antigen ~/.antigen
-        ln -s ~/.dotfiles/.nanorc ~/.nanorc
     else
         echo "Source $SRC does not exist, skipping."
     fi
+    if [ -d "$HOME/.zshrc" ]; then
+        echo "$HOME/.zshrc already exists, making .bak and cloning fresh"
+        mv "$HOME/.zshrc" "$HOME/.zshrc".bak
+    fi
+    ln -s $CONFIG_DIR/.zshrc ~/.zshrc
+    if [ -d "$HOME/.antigen" ]; then
+        echo "$HOME/.antigen already exists, making .bak and cloning fresh"
+        mv "$HOME/.antigen" "$HOME/.antigen".bak
+    fi
+    ln -s $CONFIG_DIR/.antigen ~/.antigen
+    if [ -d "$HOME/.nanorc" ]; then
+        echo "$HOME/.nanorc already exists, making .bak and cloning fresh"
+        mv "$HOME/.nanorc" "$HOME/.nanorc".bak
+    fi
+    ln -s $CONFIG_DIR/.nanorc ~/.nanorc
 done
 
 $SUPER pacman -Sy --noconfirm yay
