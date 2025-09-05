@@ -105,8 +105,8 @@ for d in "${DIRS[@]}"; do
             echo "Backing up existing $DEST to $BACKUP_DIR/"
             if [ -e "$BACKUP_DIR/$d" ] || [ -L "$BACKUP_DIR/$d" ]; then
                 mv "$DEST" "$BACKUP_DIR/${d}_$(date +%s)"
-            else
             fi
+        fi
         ln -s "$SRC" "$DEST"
         echo "Linked $SRC -> $DEST"
     else
