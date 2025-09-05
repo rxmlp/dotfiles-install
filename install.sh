@@ -37,7 +37,7 @@ else
 fi
 
 # List of required packages
-REQUIRED_PKGS=("git" "base" "fakeroot")
+REQUIRED_PKGS=("git" "base" "base-devel")
 
 # Determine which packages are missing
 MISSING_PKGS=()
@@ -110,6 +110,9 @@ for d in "${DIRS[@]}"; do
         fi
         ln -s "$SRC" "$DEST"
         echo "Linked $SRC -> $DEST"
+        ln -s ~/.dotfiles/.zshrc ~/.zshrc
+        ln -s ~/.dotfiles/antigen ~/.antigen
+        ln -s ~/.dotfiles/.nanorc ~/.nanorc
     else
         echo "Source $SRC does not exist, skipping."
     fi
