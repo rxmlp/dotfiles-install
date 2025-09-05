@@ -115,17 +115,17 @@ for d in "${DIRS[@]}"; do
     fi
     if [ -d "$HOME/.zshrc" ]; then
         echo "$HOME/.zshrc already exists, making .bak and cloning fresh"
-        mv "$HOME/.zshrc" "$HOME/.zshrc".bak
+        mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
     fi
     ln -s $CONFIG_DIR/.zshrc ~/.zshrc
     if [ -d "$HOME/.antigen" ]; then
         echo "$HOME/.antigen already exists, making .bak and cloning fresh"
-        mv "$HOME/.antigen" "$HOME/.antigen".bak
+        mv "$HOME/.antigen" "$HOME/.antigen.bak"
     fi
     ln -s $CONFIG_DIR/.antigen ~/.antigen
     if [ -d "$HOME/.nanorc" ]; then
         echo "$HOME/.nanorc already exists, making .bak and cloning fresh"
-        mv "$HOME/.nanorc" "$HOME/.nanorc".bak
+        mv "$HOME/.nanorc" "$HOME/.nanorc.bak"
     fi
     ln -s $CONFIG_DIR/.nanorc ~/.nanorc
 done
