@@ -114,15 +114,12 @@ for d in "${DIRS[@]}"; do
     fi
 done
 
-    rm -rf "$HOME/.zshrc.bak"
     mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
     ln -s $CONFIG_DIR/.zshrc $HOME/.zshrc
 
-    rm -rf "$HOME/.antigen.bak"
     mv "$HOME/.antigen" "$HOME/.antigen.bak"
     ln -s $CONFIG_DIR/.antigen $HOME/.antigen
 
-    rm "$HOME/.nanorc.bak"
     mv "$HOME/.nanorc" "$HOME/.nanorc.bak"
     ln -s $CONFIG_DIR/.nanorc $HOME/.nanorc
 
