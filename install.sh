@@ -105,7 +105,6 @@ for d in "${DIRS[@]}"; do
             if [ -e "$BACKUP_DIR/$d" ] || [ -L "$BACKUP_DIR/$d" ]; then
                 mv "$DEST" "$BACKUP_DIR/${d}_$(date +%s)"
             else
-                mv "$DEST" "$BACKUP_DIR/"
             fi
         fi
         ln -s "$SRC" "$DEST"
