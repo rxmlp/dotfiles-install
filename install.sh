@@ -112,6 +112,9 @@ for d in "${DIRS[@]}"; do
     else
         echo "Source $SRC does not exist, skipping."
     fi
+done
+
+
     if [ -d "$HOME/.zshrc" ]; then
         echo "$HOME/.zshrc already exists, making .bak and cloning fresh"
         mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
@@ -127,7 +130,6 @@ for d in "${DIRS[@]}"; do
         mv "$HOME/.nanorc" "$HOME/.nanorc.bak"
     fi
     ln -s $CONFIG_DIR/.nanorc ~/.nanorc
-done
 
 $SUPER pacman -Sy --noconfirm yay
 yay -S --noconfirm matugen-bin better-control-git
