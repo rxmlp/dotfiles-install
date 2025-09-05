@@ -114,25 +114,16 @@ for d in "${DIRS[@]}"; do
     fi
 done
 
-    if [ -d "$HOME/.zshrc" ]; then
-        echo "$HOME/.zshrc already exists, making .bak and cloning fresh"
-        mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
-    fi
-    rm "$HOME/.zshrc"
+    rm -rf "$HOME/.zshrc.bak"
+    mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
     ln -s $CONFIG_DIR/.zshrc $HOME/.zshrc
 
-    if [ -d "$HOME/.antigen" ]; then
-        echo "$HOME/.antigen already exists, making .bak and cloning fresh"
-        mv "$HOME/.antigen" "$HOME/.antigen.bak"
-    fi
-    rm -rf "$HOME/.antigen"
+    rm -rf "$HOME/.antigen.bak"
+    mv "$HOME/.antigen" "$HOME/.antigen.bak"
     ln -s $CONFIG_DIR/.antigen $HOME/.antigen
 
-    if [ -d "$HOME/.nanorc" ]; then
-        echo "$HOME/.nanorc already exists, making .bak and cloning fresh"
-        mv "$HOME/.nanorc" "$HOME/.nanorc.bak"
-    fi
-    rm "$HOME/.nanorc"
+    rm "$HOME/.nanorc.bak"
+    mv "$HOME/.nanorc" "$HOME/.nanorc.bak"
     ln -s $CONFIG_DIR/.nanorc $HOME/.nanorc
 
 $SUPER pacman -Sy --noconfirm yay
