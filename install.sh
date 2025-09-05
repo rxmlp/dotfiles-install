@@ -114,14 +114,16 @@ for d in "${DIRS[@]}"; do
     fi
 done
 
-    mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
-    ln -s $CONFIG_DIR/.zshrc $HOME/.zshrc
+if [ -e "$HOME/.zshrc" ] || [ -L "$HOME/.zshrc" ]; then
+    rm "$HOME/.zshrc"
+fi
+ln -sf "$CONFIG_DIR/.zshrc" "$HOME/.zshrc"
 
-    mv "$HOME/.antigen" "$HOME/.antigen.bak"
-    ln -s $CONFIG_DIR/.antigen $HOME/.antigen
+if [ -e "$HOME/.nanorc" ] || [ -L "$HOME/.nanorc" ]; then
+    rm "$HOME/.nanorc"
+fi
+ln -sf "$CONFIG_DIR/.nanorc" "$HOME/.nanorc"
 
-    mv "$HOME/.nanorc" "$HOME/.nanorc.bak"
-    ln -s $CONFIG_DIR/.nanorc $HOME/.nanorc
 
 $SUPER pacman -Sy --noconfirm yay
 yay -S --noconfirm matugen-bin better-control-git
