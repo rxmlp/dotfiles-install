@@ -107,6 +107,8 @@ for d in "${DIRS[@]}"; do
             else
             fi
         fi
+    if
+    fi
         ln -s "$SRC" "$DEST"
         echo "Linked $SRC -> $DEST"
     else
