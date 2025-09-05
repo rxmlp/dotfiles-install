@@ -62,8 +62,8 @@ fi
 $SUPER pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
 $SUPER pacman-key --lsign-key 3056513887B78AEB
 
-$SUPER pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
-$SUPER pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+$SUPER pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
+$SUPER pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 
 PACMAN_CONF="/etc/pacman.conf"
 REPO_BLOCK="[chaotic-aur]"
