@@ -39,7 +39,7 @@ fi
 $SUPER pacman -Syu
 
 # List of required packages
-REQUIRED_PKGS=("git" "base")
+REQUIRED_PKGS=("git" "base" "fakeroot")
 
 # Determine which packages are missing
 MISSING_PKGS=()
@@ -75,11 +75,8 @@ if ! grep -qF "$REPO_BLOCK" "$PACMAN_CONF"; then
 else
     echo "Chaotic-AUR repository already present in $PACMAN_CONF"
 fi
+$SUPER pacman -Sy
 
-
-# Getting the dotfiles
-
-git clone https://github.com/rxmlp/dotfiles.git
 
 CONFIG_DIR="$HOME/.dotfiles"
 TARGET_DIR="$HOME/.config"
@@ -88,9 +85,14 @@ DIRS=(
   fastfetch helix kitty matugen rofi swappy xdg-desktop-portal ghostty hypr mako qt6ct superfile waybar
 )
 
-mkdir -p "$CONFIG_DIR"
-rm -rf dotfiles/.git
-cp -r dotfiles/. "$CONFIG_DIR"
+# Clone your dotfiles repo to CONFIG_DIR, backing up if it already exists
+if [ -d "$CONFIG_DIR" ]; then
+    echo "$CONFIG_DIR already exists, making .bak and cloning fresh"
+    mv "$CONFIG_DIR" "$CONFIG_DIR".bak
+fi
+
+git clone https://github.com/rxmlp/dotfiles.git "$CONFIG_DIR"
+
 
 mkdir -p "$TARGET_DIR"
 mkdir -p "$BACKUP_DIR"
@@ -115,3 +117,19 @@ for d in "${DIRS[@]}"; do
     fi
 done
 
+# After setting up Chaotic-AUR and refreshing the package database
+
+# Temporary working directory for building the dummy package
+BUILD_DIR=$(mktemp -d --suffix=_xyrd-PKGBUILD)
+
+# Download the PKGBUILD for xyrd-dots
+curl -L -o "$BUILD_DIR/PKGBUILD" "https://raw.githubusercontent.com/rxmlp/dotfiles-install/refs/heads/main/PKGBUILD"
+
+# Change to the build directory
+cd "$BUILD_DIR"
+
+# Build and install the dummy package (this requires base-devel installed)
+makepkg -si --noconfirm
+
+# Clean up the build directory
+rm -rf "$BUILD_DIR"
