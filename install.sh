@@ -114,22 +114,26 @@ for d in "${DIRS[@]}"; do
     fi
 done
 
-
     if [ -d "$HOME/.zshrc" ]; then
         echo "$HOME/.zshrc already exists, making .bak and cloning fresh"
         mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
     fi
-    ln -s $CONFIG_DIR/.zshrc ~/.zshrc
+    rm "$HOME/.zshrc"
+    ln -s $CONFIG_DIR/.zshrc $HOME/.zshrc
+
     if [ -d "$HOME/.antigen" ]; then
         echo "$HOME/.antigen already exists, making .bak and cloning fresh"
         mv "$HOME/.antigen" "$HOME/.antigen.bak"
     fi
-    ln -s $CONFIG_DIR/.antigen ~/.antigen
+    rm -rf "$HOME/.antigen"
+    ln -s $CONFIG_DIR/.antigen $HOME/.antigen
+
     if [ -d "$HOME/.nanorc" ]; then
         echo "$HOME/.nanorc already exists, making .bak and cloning fresh"
         mv "$HOME/.nanorc" "$HOME/.nanorc.bak"
     fi
-    ln -s $CONFIG_DIR/.nanorc ~/.nanorc
+    rm "$HOME/.nanorc"
+    ln -s $CONFIG_DIR/.nanorc $HOME/.nanorc
 
 $SUPER pacman -Sy --noconfirm yay
 yay -S --noconfirm matugen-bin better-control-git
