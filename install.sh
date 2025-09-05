@@ -86,7 +86,8 @@ DIRS=(
 # Clone your dotfiles repo to CONFIG_DIR, backing up if it already exists
 if [ -d "$CONFIG_DIR" ]; then
     echo "$CONFIG_DIR already exists, making .bak and cloning fresh"
-    mv "$CONFIG_DIR" "$CONFIG_DIR".bak
+    rm -rf "$CONFIG_DIR.bak"
+    mv "$CONFIG_DIR" "$CONFIG_DIR.bak"
 fi
 
 git clone https://github.com/rxmlp/dotfiles.git "$CONFIG_DIR"
