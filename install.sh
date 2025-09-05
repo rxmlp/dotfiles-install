@@ -36,7 +36,7 @@ else
     exit 1
 fi
 
-$SUPER pacman -Syu
+$SUPER pacman -Syu --noconfirm
 
 # List of required packages
 REQUIRED_PKGS=("git" "base" "fakeroot")
@@ -75,7 +75,7 @@ if ! grep -qF "$REPO_BLOCK" "$PACMAN_CONF"; then
 else
     echo "Chaotic-AUR repository already present in $PACMAN_CONF"
 fi
-$SUPER pacman -Sy
+$SUPER pacman -Sy --noconfirm
 
 
 CONFIG_DIR="$HOME/.dotfiles"
@@ -117,7 +117,9 @@ for d in "${DIRS[@]}"; do
     fi
 done
 
-# After setting up Chaotic-AUR and refreshing the package database
+$SUPER pacman -Sy --noconfirm yay
+yay -S --noconfirm matugen-bin
+
 
 # Temporary working directory for building the dummy package
 BUILD_DIR=$(mktemp -d --suffix=_xyrd-PKGBUILD)

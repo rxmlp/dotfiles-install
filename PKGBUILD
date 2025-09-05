@@ -3,7 +3,6 @@
 pkgname=xyrd-dots
 pkgver=1.0.0
 pkgrel=1
-PACMAN_AUTH=(doas)   
 pkgdesc="Meta-package for xyrd-dots dependencies"
 arch=('any')
 url="https://github.com/rxmlp/dotfiles"
@@ -29,7 +28,6 @@ depends=(
     aquamarine
 
     # tools
-    opendoas
     git
     base
     ninja
@@ -72,7 +70,6 @@ depends=(
     mpvpaper
 
     # Utilities
-    matugen-bin
     helix
     zsh
     mako
@@ -91,7 +88,7 @@ depends=(
     fastfetch
     pcmanfm-qt
 
-    # Newly added from your list
+    # ETC
     better-control-git
     bluez
     bluez-tools
@@ -102,9 +99,6 @@ depends=(
     ttf-jetbrains-mono-nerd
 )
 optdepends=(
-    'doas-sudo-shim: For sudo compatibility with doas'
-    'timeshift: For system snapshots'
-    'timeshift-autosnap: For automatic snapshots'
     'codium: For Visual Studio Code alternative'
     'gnome-disk-utility: For disk management GUI'
 )
