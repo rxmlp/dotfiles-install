@@ -37,7 +37,7 @@ else
 fi
 
 # List of required packages
-REQUIRED_PKGS=("git" "base" "base-devel" "starship")
+REQUIRED_PKGS=("git" "base" "base-devel")
 
 # Determine which packages are missing
 MISSING_PKGS=()
@@ -118,6 +118,7 @@ if [ -e "$HOME/.zshrc" ] || [ -L "$HOME/.zshrc" ]; then
     rm "$HOME/.zshrc"
 fi
 ln -sf "$CONFIG_DIR/.zshrc" "$HOME/.zshrc"
+curl -sS https://starship.rs/install.sh | sh
 
 if [ -e "$HOME/.nanorc" ] || [ -L "$HOME/.nanorc" ]; then
     rm "$HOME/.nanorc"
