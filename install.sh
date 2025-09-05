@@ -36,8 +36,6 @@ else
     exit 1
 fi
 
-$SUPER pacman -Syu --noconfirm
-
 # List of required packages
 REQUIRED_PKGS=("git" "base" "fakeroot")
 
@@ -75,7 +73,7 @@ if ! grep -qF "$REPO_BLOCK" "$PACMAN_CONF"; then
 else
     echo "Chaotic-AUR repository already present in $PACMAN_CONF"
 fi
-$SUPER pacman -Sy --noconfirm
+$SUPER pacman -Syu --noconfirm
 
 
 CONFIG_DIR="$HOME/.dotfiles"

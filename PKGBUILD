@@ -97,10 +97,7 @@ depends=(
     papirus-icon-theme
     ttf-jetbrains-mono-nerd
 )
-optdepends=(
-    'codium: For Visual Studio Code alternative'
-    'gnome-disk-utility: For disk management GUI'
-)
+optdepends=()
 conflicts=()
 provides=()
 replaces=()
