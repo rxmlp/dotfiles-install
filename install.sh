@@ -144,3 +144,7 @@ makepkg -si --noconfirm
 
 # Clean up the build directory
 rm -rf "$BUILD_DIR"
+
+hyprpm add https://github.com/outfoxxed/hy3
+
+hyprpm update
