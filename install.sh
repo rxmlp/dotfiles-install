@@ -127,7 +127,7 @@ ln -sf "$CONFIG_DIR/.nanorc" "$HOME/.nanorc"
 
 
 $SUPER pacman -Sy --noconfirm yay
-yay -S --noconfirm matugen-bin better-control-git
+yay -S --noconfirm matugen-bin better-control-git hyprsessionmanager-git
 
 
 # Temporary working directory for building the dummy package
