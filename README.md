@@ -1,6 +1,6 @@
 # dotfiles-install
 
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/rxmlp/dotfiles-install/main/install.sh)"
+bash -c "$(curl -fsSL https://codeberg.org/xyrd/dotfiles-install/raw/branch/main/install.sh)"
 
 
-This will install https://github.com/rxmlp/dotfiles
+This will install https://codeberg.org/xyrd/dotfiles
