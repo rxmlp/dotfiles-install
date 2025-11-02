@@ -80,7 +80,7 @@ CONFIG_DIR="$HOME/.dotfiles"
 TARGET_DIR="$HOME/.config"
 BACKUP_DIR="$TARGET_DIR/backup"
 DIRS=(
-  fastfetch helix kitty matugen rofi swappy xdg-desktop-portal ghostty hypr mako qt6ct superfile waybar
+  fastfetch helix kitty matugen rofi swappy xdg-desktop-portal ghostty hypr mako qt6ct waybar
 )
 
 # Clone your dotfiles repo to CONFIG_DIR, backing up if it already exists

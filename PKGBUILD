@@ -59,7 +59,6 @@ depends=(
     libdisplay-info
     xcb-util-errors
     xdg-desktop-portal-gtk
-    fd
     ffmpegthumbnailer
     imagemagick
     tomlplusplus
@@ -70,23 +69,32 @@ depends=(
     mpvpaper
 
     # Utilities
-    helix
-    zsh
     mako
-    ghostty
-    kitty
-    rofi-wayland
+    rofi
     grimblast-git
     swappy
     waybar
-    fzf
     greetd
-    btop
-    nvtop
-    eza
     clipman
     fastfetch
     pcmanfm-qt
+    lxqt-archiver
+
+    # Cli
+    ghostty
+    kitty
+    zsh
+    starship
+    eza
+    fd
+    fzf
+    yazi
+    ripgrep
+    grep
+    helix
+    nvtop
+    btop
+    htop
 
     # ETC
     bluez
