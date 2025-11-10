@@ -1,7 +1,7 @@
 # Maintainer: Your Name <your.email@example.com>
 
 pkgname=xyrd-dots
-pkgver=1.0.0
+pkgver=2.0.0
 pkgrel=1
 pkgdesc="Meta-package for xyrd-dots dependencies"
 arch=('any')
@@ -13,21 +13,24 @@ depends=(
     hypridle
     hyprlock
     hyprsunset
-    hyprlang
-    hyprutils
     hyprpaper
-    hyprcursor
     hyprpicker
-    hyprgraphics
     hyprpolkitagent
-    hyprland-qtutils
     hyprland-protocols
     hyprland-qt-support
-    hyprwayland-scanner
     xdg-desktop-portal-hyprland
     aquamarine
 
-    # tools
+    # Dependencies
+    xdg-desktop-portal-gtk
+    ffmpegthumbnailer
+    imagemagick
+    qt6ct
+    wf-recorder
+    wl-clipboard
+    xorg-xhost
+    mpvpaper
+
     git
     base
     ninja
@@ -36,37 +39,8 @@ depends=(
     meson
     make
     glaze
-    re2
     cpio
     socat
-
-    # XCB and Wayland dependencies
-    libxcb
-    xcb-proto
-    xcb-util
-    xcb-util-keysyms
-    libxfixes
-    libx11
-    libxcomposite
-    libxrender
-    libxcursor
-    pixman
-    wayland-protocols
-    xcb-util-wm
-    xorg-xwayland
-    libinput
-    libliftoff
-    libdisplay-info
-    xcb-util-errors
-    xdg-desktop-portal-gtk
-    ffmpegthumbnailer
-    imagemagick
-    tomlplusplus
-    qt6ct
-    wf-recorder
-    wl-clipboard
-    xorg-xhost
-    mpvpaper
 
     # Utilities
     mako
